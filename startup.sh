@@ -15,6 +15,11 @@ DB_HOST="${DB_HOST}"
 DB_NAME="${DB_NAME}"
 DB_USER="admin"
 
+echo "$DB_PASS"
+echo "$DB_HOST"
+echo "$DB_NAME"
+echo "admin"
+
 # Temporary files
 REMOTE_SCHEMA="/tmp/remote_schema.sql"
 LOCAL_SCHEMA="/tmp/local_schema.sql"
