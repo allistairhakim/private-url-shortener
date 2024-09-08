@@ -20,9 +20,10 @@ echo "$DB_HOST"
 echo "$DB_NAME"
 echo "admin"
 
+
 # Temporary files
-REMOTE_SCHEMA="/tmp/remote_schema.sql"
-LOCAL_SCHEMA="/tmp/local_schema.sql"
+REMOTE_SCHEMA="remote_schema.sql"
+LOCAL_SCHEMA="local_schema.sql"
 
 SQL_FILE="/var/www/html/database.sql"
 
@@ -31,10 +32,6 @@ until mysql -u $DB_USER -p"$DB_PASSWORD" -h "$DB_HOST" -P 3306 -e "SELECT 1"; do
     echo "Waiting for MySQL to be ready..."
     sleep 2
 done
-
-# Temporary files
-REMOTE_SCHEMA="/tmp/remote_schema.sql"
-LOCAL_SCHEMA="/tmp/local_schema.sql"
 
 # Extract the remote database schema
 mysql -u $DB_USER -p"$DB_PASSWORD" -h "$DB_HOST" -P 3306 -D "$DB_NAME" -e "SHOW TABLES;" | grep -v Tables_in_ > tables.txt
