@@ -62,7 +62,7 @@ rm tables.txt $REMOTE_SCHEMA $LOCAL_SCHEMA
 # Update the config.php file with database credentials
 sed -i "s|\$dbhost = ''|\$dbhost = '$DB_HOST'|; s|\$dbuser = ''|\$dbuser = '$DB_USER'|; s|\$dbpass = ''|\$dbpass = '$DB_PASSWORD'|; s|\$dbname = ''|\$dbname = '$DB_NAME'|" /var/www/html/config.php
 
-systemctl restart apache2
+apache2ctl restart
 
 # Start Apache in the foreground
 apache2ctl -D FOREGROUND
